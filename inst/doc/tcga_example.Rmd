@@ -1,0 +1,71 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{An example with a TCGA dataset}
+-->
+
+---
+title: "tcga_example"
+author: "Ryo Sakai"
+date: "8 September 2014"
+output: html_document
+---
+
+This is an R Markdown document, which demonstrates the use of **gapmap** and **dendsort** packages to generate a gapped cluster heatmap visualization.
+
+
+Le's start by loading the data file. Please make sure you got the correct url.
+```{r}
+library(gapmap)
+data("sample_tcga")
+```
+
+Now you have the data matrix loaded, let's calculate correlation-based distance and perform hierarchical clustering. In this example, we use the Pearson Correlation and the complete linkage for hierarchical clustering. 
+```{r}
+#transpose
+dataTable <- t(sample_tcga)
+#calculate the correlation based distance
+row_dist <- as.dist(1-cor(t(dataTable), method = "pearson"))
+col_dist <- as.dist(1-cor(dataTable, method = "pearson"))
+#hierarchical clustering
+col_hc <- hclust(col_dist, method = "complete")
+row_hc <- hclust(row_dist, method = "complete")
+col_d <- as.dendrogram(col_hc)
+row_d <- as.dendrogram(row_hc)
+```
+
+
+Now you are ready to plot the data.  We will first load the **gapmap** library. 
+
+```{r, fig.height=13, fig.width=20}
+gapmap(m = as.matrix(dataTable), d_row = rev(row_d), d_col = col_d, mode = "quantitative", mapping="exponential", 
+       ratio = 0.3, verbose=FALSE, scale = 0.5, label_size=2, v_ratio= c(0.1,0.8,0.1), h_ratio=c(0.1,0.8,0.1))
+```
+
+This package works well with the **dendsor** package to reorder the structure of dendrograms. For further information for the **dendsort**, please see the [paper](http://f1000research.com/articles/3-177/v1).
+
+```{r, fig.height=13, fig.width=20}
+library(dendsort)
+gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
+       mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
+       h_ratio=c(0.1,0.8,0.1), label_size=2, show_legend=TRUE)
+```
+
+In order to save the output, use the `png()` or `pdf()` functions.
+```{r, eval=FALSE}
+png("myplot.png", width= 2000, height= 1300, units="px")
+gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
+       mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
+       h_ratio=c(0.1,0.8,0.1), label_size=2, show_legend=TRUE)
+dev.off()
+```
+
+To save a pdf file.
+```{r, eval=FALSE}
+pdf("myplot.pdf", width= 20, height= 13)
+gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
+       mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
+       h_ratio=c(0.1,0.8,0.1), label_size=2, show_legend=TRUE)
+dev.off()
+```
+
+

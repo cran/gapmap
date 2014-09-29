@@ -87,7 +87,7 @@ gap_dendrogram <- function (data, leaf_labels = TRUE, rotate_label=FALSE, orient
       axis.title.x=element_blank(),
       axis.title.y=element_blank()) + labs(x=NULL, y=NULL)
     if(rotate_label){
-      p <- p + theme(axis.text.x = element_text(angle = 90))
+      p <- p + theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5))
     }
   }else{
     p <- p + theme( 

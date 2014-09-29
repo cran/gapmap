@@ -1,4 +1,4 @@
-a9e1b6f7c20c22af674a49fe437965af *DESCRIPTION
+0336cb76564ea2fe69153824d84b0023 *DESCRIPTION
 37bf8516ec4b51c66dc57bd5f2f7dbf6 *NAMESPACE
 0ab24b090276c7c5a970d17aadb8a46e *R/as.gapdata.R
 db882a0f5a0edc48493948697b84f8ae *R/assign_branch_positions.R
@@ -8,11 +8,11 @@ e5cdd710678646790750fa2cdee51e3a *R/count_gap.R
 8e7a543d9f3bf33f65cf3dcfe8256901 *R/extract_list.R
 2560e1bb1f66a4a298b619eeb3149b2c *R/format_number.R
 6271cf40aaf63d92c628abbac506e49b *R/gap_data.R
-851715a060e0a7a7b98e0280c7aa84c5 *R/gap_dendrogram.R
+d88a5b9b87da0b337957fd16c0df7a78 *R/gap_dendrogram.R
 5b079065f1d1336d50dc06f32b0ff778 *R/gap_heatmap.R
 0ae4594f277eab34a83ecd45ac0be0c7 *R/gap_label.R
 ab2941004b677cdc8ccd4acdbaebfb79 *R/gapmap-package.R
-6e823e6514db60ed0affdacd818beb26 *R/gapmap.R
+dbdf95aefc914c724264f91f8e1ebd3a *R/gapmap.R
 5b9225af04f6c331ab670050ac267b79 *R/get_most_left_leaf.R
 3be48d951068fbd6bd6c47f9b024f79b *R/get_most_right_leaf.R
 f2b8e76ea627dacaa15739c213399749 *R/get_segment_df.R
@@ -23,12 +23,12 @@ f522dad5dcaccfff15d670428768265e *R/map.R
 307867e8fcc5ef224f368ad92e68e39f *R/sum_distance.R
 5b7963229c00fda9ae744a4cee51f3e4 *build/vignette.rds
 4f0ff729e323e8864c982df1280b4017 *data/sample_tcga.rda
-03c76272b23770b3bcfa6c761d2ca8ee *inst/doc/simple_example.R
-b42bd17a0f6d1154ede520a05a5af7ad *inst/doc/simple_example.Rmd
-55bb5c09bf53902c30da5612f7121d45 *inst/doc/simple_example.html
-3bd2b2c028eecde70c2078bbb9f4f4fb *inst/doc/tcga_example.R
-b8ffe23186b8de2e8781c4afeff86da5 *inst/doc/tcga_example.Rmd
-9fc0c64e8c7d313ba16dfac80ffdef8e *inst/doc/tcga_example.html
+67f62e18f69031f81a2abc714293e34c *inst/doc/simple_example.R
+c5be449925523db4cfea012887555ab5 *inst/doc/simple_example.Rmd
+c14a78378cc0cd2ae9fdb5d16c5107b8 *inst/doc/simple_example.html
+47cd1ca90fb4a5ba4972e05bef3a212d *inst/doc/tcga_example.R
+20c795f498bcdc9fea2ed09e231badc9 *inst/doc/tcga_example.Rmd
+c8c5ed6fd3653a3ab86dfe088f113bbc *inst/doc/tcga_example.html
 bf3c5b1318c3c82d05293a2567816998 *man/as.gapdata.Rd
 cb17dd47c804af05f61a588cc383bc61 *man/assign_branch_positions.Rd
 b7fdc4f3a6d9ee9f7d52c097cf89f406 *man/assign_positions.Rd
@@ -51,5 +51,5 @@ dce98550b1ab37de874ee363713ee0a4 *man/map.Rd
 82ac99487be8d19f8f1a818dcb7b5886 *man/sample_tcga.Rd
 7bd50aab5c4372ea1e014a1e31ba0030 *man/set_most_right_leaf.Rd
 edfd41da040d3d7fcdafd84ddf36fca2 *man/sum_distance.Rd
-b42bd17a0f6d1154ede520a05a5af7ad *vignettes/simple_example.Rmd
-b8ffe23186b8de2e8781c4afeff86da5 *vignettes/tcga_example.Rmd
+c5be449925523db4cfea012887555ab5 *vignettes/simple_example.Rmd
+20c795f498bcdc9fea2ed09e231badc9 *vignettes/tcga_example.Rmd

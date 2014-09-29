@@ -47,8 +47,8 @@
 gapmap <-function(m, d_row, d_col, mode=c("quantitative", "threshold"), mapping=c("exponential", "linear"), 
                   ratio= 0.2, scale = 0.5, threshold = 0, row_threshold = NULL, col_threshold = NULL, rotate_label = TRUE, verbose=FALSE, 
                   left="dendrogram", top="dendrogram", right="label", bottom="label",
-                  col=c("#053061", "#2166AC", "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7", 
-                  "#FDDBC7", "#F4A582", "#D6604D", "#B2182B", "#67001F"), h_ratio=c(0.2,0.7,0.1), v_ratio=c(0.2,0.7,0.1),label_size=5, show_legend = FALSE,...){
+                  col=c("#053061", "#2166AC", "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7", "#FDDBC7", "#F4A582", "#D6604D", "#B2182B", "#67001F"), 
+                  h_ratio=c(0.2,0.7,0.1), v_ratio=c(0.2,0.7,0.1),label_size=5, show_legend = FALSE,...){
   #check input
   if(is.null(m) | !inherits(m, "matrix")){
     stop("You need to provide a matrix object.")
@@ -127,7 +127,7 @@ gapmap <-function(m, d_row, d_col, mode=c("quantitative", "threshold"), mapping=
     bottom_item = gap_label(col_data, "bottom", label_size)    
   }
   
-  center_item = gap_heatmap(m, row_gap = row_data, col_gap=col_data, row_labels = FALSE, col_labels = FALSE)
+  center_item = gap_heatmap(m, row_gap = row_data, col_gap=col_data, row_labels = FALSE, col_labels = FALSE, col=col)
   
   #extract legend 
   hm <-center_item +theme(legend.position=c(0.5, 0.5), legend.direction = "horizontal")

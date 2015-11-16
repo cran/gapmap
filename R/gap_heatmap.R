@@ -69,9 +69,9 @@ gap_heatmap <- function(m, row_gap=NULL, col_gap=NULL, row_labels=TRUE, col_labe
     #no decoration
     p <- ggplot(data = M, aes_string(x="x",y="y")) + geom_tile(aes_string(fill="value"))+ scale_fill_gradientn(colours = col) + 
       theme(
-        plot.margin = unit(c(0,0, unit(-0.4, "line"), unit(-0.4, "line")), "lines"), 
-        #plot.margin = unit(c(0,0,0,0), "lines"), 
-        #panel.margin = unit(c(0,0,0,0), "lines"),
+        plot.margin = grid::unit(c(0,0, grid::unit(-0.4, "line"), grid::unit(-0.4, "line")), "lines"), 
+        #plot.margin = grid::unit(c(0,0,0,0), "lines"), 
+        #panel.margin = grid::unit(c(0,0,0,0), "lines"),
         panel.background = element_blank(), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 
@@ -89,7 +89,7 @@ gap_heatmap <- function(m, row_gap=NULL, col_gap=NULL, row_labels=TRUE, col_labe
     p <- ggplot(data = M, aes_string(x="x",y="y")) + geom_tile(aes_string(fill="value"))+ scale_fill_gradientn(colours = col) + 
       labs(title=NULL) +
       theme(
-        plot.margin = unit(c(0,0,0,0), "lines"), 
+        plot.margin = grid::unit(c(0,0,0,0), "lines"), 
         panel.background = element_blank(), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 

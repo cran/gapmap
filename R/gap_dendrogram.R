@@ -22,7 +22,7 @@ gap_dendrogram <- function (data, leaf_labels = TRUE, rotate_label=FALSE, orient
     stop("data is not a gapdata object")
   } 
   #start ggplot
-  p <- ggplot()
+  p <- ggplot2::ggplot()
   #dendrogram lines
   if (is.null(data$segments)) {
     stop("no segments information in the gapmap object.")
@@ -53,19 +53,19 @@ gap_dendrogram <- function (data, leaf_labels = TRUE, rotate_label=FALSE, orient
     if(orientation == "top"){
       p <- p + geom_segment(data = data$segments, aes_string(x = "x", y = "y", xend = "xend", yend = "yend")) + 
         scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0)) +
-        theme(plot.margin = unit(c(0.2, 0, -0.4, -0.4), "lines"))
+        theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.4), "lines"))
     }else if(orientation =="right"){
       p <- p + geom_segment(data = data$segments, aes_string(x = "x", y = "y", xend = "xend", yend = "yend")) +
         scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0))+ coord_flip()+
-        theme(plot.margin = unit(c(0.2, 0, -0.4, -0.4), "lines"))
+        theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.4), "lines"))
     }else if(orientation =="bottom"){
       p <- p + geom_segment(data = data$segments, aes_string(x = "x", y = "y", xend = "xend", yend = "yend")) + 
         scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0), trans="reverse") +
-        theme(plot.margin = unit(c(0.2, 0, -0.4, -0.4), "lines"))
+        theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.4), "lines"))
     }else if(orientation == "left"){
       p <- p + geom_segment(data = data$segments, aes_string(x = "x", y = "y", xend = "xend", yend = "yend")) +
         scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0), trans="reverse")+ coord_flip()  +
-        theme(plot.margin = unit(c(0, 0, -0.4, -0.2), "lines"))
+        theme(plot.margin = grid::unit(c(0, 0, -0.4, -0.2), "lines"))
     }else{
       stop("invalid orientation parameter.")
     }
@@ -74,8 +74,8 @@ gap_dendrogram <- function (data, leaf_labels = TRUE, rotate_label=FALSE, orient
   #styling
   if(leaf_labels){
     p <- p + theme( 
-      plot.margin = unit(c(0,0,0,0), "lines"),               
-      panel.margin = unit(c(0,0,0,0), "lines"),
+      plot.margin = grid::unit(c(0,0,0,0), "lines"),               
+      panel.margin = grid::unit(c(0,0,0,0), "lines"),
       panel.background = element_blank(), 
       panel.grid.major = element_blank(), 
       panel.grid.minor = element_blank(), 
@@ -91,8 +91,8 @@ gap_dendrogram <- function (data, leaf_labels = TRUE, rotate_label=FALSE, orient
     }
   }else{
     p <- p + theme( 
-#       plot.margin = unit(c(0.5,0, unit(-0.3, "line"), unit(-0.5, "line")), "lines"),               
-      panel.margin = unit(c(0,0,0,0), "lines"),
+#       plot.margin = grid::unit(c(0.5,0, grid::unit(-0.3, "line"), grid::unit(-0.5, "line")), "lines"),               
+      panel.margin = grid::unit(c(0,0,0,0), "lines"),
       panel.background = element_blank(), 
       panel.grid.major = element_blank(), 
       panel.grid.minor = element_blank(), 

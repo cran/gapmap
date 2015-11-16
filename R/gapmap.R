@@ -93,14 +93,14 @@ gapmap <-function(m, d_row, d_col, mode=c("quantitative", "threshold"), mapping=
   if(noRowGaps){
     row_data <- NULL
   }else{
-    row_data <- gap_data(d=d_row, mode=mode, mapping = mapping, ratio = ratio, threshold = row_threshold, verbose = verbose)
+    row_data <- gap_data(d=d_row, mode=mode, mapping = mapping, ratio = ratio, threshold = row_threshold, verbose = verbose, scale=scale)
   }
   
   #parse Columns
   if(noColGaps){
     col_data <- NULL
   }else{
-    col_data <- gap_data(d=d_col,mode=mode, mapping = mapping, ratio = ratio, threshold = col_threshold, verbose = verbose)
+    col_data <- gap_data(d=d_col,mode=mode, mapping = mapping, ratio = ratio, threshold = col_threshold, verbose = verbose, scale=scale)
   }
   #get all elements
   if(left == "dendrogram"){
@@ -131,7 +131,7 @@ gapmap <-function(m, d_row, d_col, mode=c("quantitative", "threshold"), mapping=
   
   #extract legend 
   hm <-center_item +theme(legend.position=c(0.5, 0.5), legend.direction = "horizontal")
-  tmp <- ggplot_gtable(ggplot_build(hm)) 
+  tmp <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(hm)) 
   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box") 
   legend <- tmp$grobs[[leg]]   
 
@@ -161,26 +161,26 @@ gapmap <-function(m, d_row, d_col, mode=c("quantitative", "threshold"), mapping=
 #   }
   
   #start a new blank page
-  grid.newpage() 
+  grid::grid.newpage() 
   #set a Grid layout
-  grid_layout <- grid.layout(nrow = row.n, ncol = col.n, widths = unit(c(left.width, center.width, right.width), "null"), heights = unit(c(top.height, center.height, bottom.height), "null"))
+  grid_layout <- grid::grid.layout(nrow = row.n, ncol = col.n, widths = grid::unit(c(left.width, center.width, right.width), "null"), heights = grid::unit(c(top.height, center.height, bottom.height), "null"))
   #push viewport to use the layout
-  pushViewport(viewport(layout=grid_layout))
-  if(left.width>0)
-    print(left_item, vp=viewport(layout.pos.col=1, layout.pos.row=2))
-  if(top.height>0)
-    print(top_item, vp=viewport(layout.pos.col=2, layout.pos.row=1))
-  if(right.width>0)
-    print(right_item, vp=viewport(layout.pos.col=3, layout.pos.row=2))
-  if(bottom.height>0)
-    print(bottom_item, vp=viewport(layout.pos.col=2, layout.pos.row=3))
+  grid::pushViewport(grid::viewport(layout=grid_layout))
+  if(left.width>0 & !is.null(left_item))
+    print(left_item, vp=grid::viewport(layout.pos.col=1, layout.pos.row=2))
+  if(top.height>0& !is.null(top_item))
+    print(top_item, vp=grid::viewport(layout.pos.col=2, layout.pos.row=1))
+  if(right.width>0& !is.null(right_item))
+    print(right_item, vp=grid::viewport(layout.pos.col=3, layout.pos.row=2))
+  if(bottom.height>0 & !is.null(bottom_item))
+    print(bottom_item, vp=grid::viewport(layout.pos.col=2, layout.pos.row=3))
   ## print centre without legend
-  print(center_item, vp=viewport(layout.pos.col=2, layout.pos.row=2))
+  print(center_item, vp=grid::viewport(layout.pos.col=2, layout.pos.row=2))
 
   if(show_legend){
-    pushViewport(viewport(layout.pos.col=3, layout.pos.row=1))
-    grid.draw(legend)
+    grid::pushViewport(grid::viewport(layout.pos.col=3, layout.pos.row=1))
+    grid::grid.draw(legend)
   }
 
-  upViewport(0)
+  grid::upViewport(0)
 } 

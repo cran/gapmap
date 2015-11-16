@@ -16,10 +16,11 @@
 #' @aliases gapmap-package
 #' @docType package
 #' @title Draws gapped heatmap (gapmap) and gapped dendrograms using ggplot2 in [R].
-#' @import ggplot2
-#' @import grid
-#' @import reshape2
-#' @author Ryo Sakai \email{ryo.sakai@@esat.kuleuven.be}
+#' @importFrom ggplot2 ggplot geom_segment theme element_blank aes_string coord_flip scale_x_continuous scale_y_reverse scale_y_continuous element_text element_line labs geom_tile scale_fill_gradientn geom_text
+#' @importFrom grid unit arrow 
+#' @importFrom stats is.leaf
+#' @importFrom reshape2 melt
+#' @author Ryo Sakai \email{ryo.sakai@esat.kuleuven.be}
 #' @keywords package
 NULL
 

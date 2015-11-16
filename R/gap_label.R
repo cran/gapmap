@@ -30,24 +30,24 @@ gap_label <- function(data, orientation, label_size = 5){
   if(orientation  == "left"){
     p <- ggplot(data=data$label, aes_string(x="y", y="x", label="label") ) +
       scale_y_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_x_continuous(expand=c(0,0), limits=c(-1, 0)) +
-      geom_text(hjust=1, size = label_size) + theme(plot.margin = unit(c(0, 0, -0.4, -0.2), "lines"))
+      geom_text(hjust=1, size = label_size) + theme(plot.margin = grid::unit(c(0, 0, -0.4, -0.2), "lines"))
   }else if(orientation =="top"){
     p <- ggplot(data=data$label, aes_string(x="x", y="y", label="label") ) +
       scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0), limits=c(0,1)) +
-      geom_text(angle = 90, hjust=0, size = label_size) + theme(plot.margin = unit(c(0.2, 0, -0.4, -0.4), "lines"))
+      geom_text(angle = 90, hjust=0, size = label_size) + theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.4), "lines"))
   }else if(orientation=="right"){
     p <- ggplot(data=data$label, aes_string(x="y", y="x", label="label") ) +
       scale_y_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_x_continuous(expand=c(0,0), limits=c(0,1)) +
-      geom_text(hjust=0, size = label_size) + theme(plot.margin = unit(c(0.2, 0, -0.4, -0.2), "lines"))
+      geom_text(hjust=0, size = label_size) + theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.2), "lines"))
   }else if(orientation =="bottom"){
     p <- ggplot(data=data$label, aes_string(x="x", y="y", label="label") ) +
       scale_x_continuous(expand=c(0,0), limits = c(x_min, x_max))+ scale_y_continuous(expand=c(0,0), limits=c(-1,0)) +
-      geom_text(angle = 90, hjust=1, size = label_size) + theme(plot.margin = unit(c(0.2, 0, -0.4, -0.4), "lines"))
+      geom_text(angle = 90, hjust=1, size = label_size) + theme(plot.margin = grid::unit(c(0.2, 0, -0.4, -0.4), "lines"))
   }
  
   p <- p + theme( 
-      #plot.margin = unit(c(0,0,0,0), "lines"),               
-      panel.margin = unit(c(0,0,0,0), "lines"),
+      #plot.margin = grid::unit(c(0,0,0,0), "lines"),               
+      panel.margin = grid::unit(c(0,0,0,0), "lines"),
       panel.background = element_blank(), 
       panel.grid.major = element_blank(), 
       panel.grid.minor = element_blank(), 

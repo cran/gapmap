@@ -1,11 +1,11 @@
 Package: gapmap
 Type: Package
 Title: Functions for Drawing Gapped Cluster Heatmap with ggplot2
-Version: 0.0.3
+Version: 0.0.4
 URL: https://bitbucket.org/vda-lab/gapmap
-Date: 2015-11-15
+Date: 2015-12-14
 Author: Ryo Sakai
-Maintainer: Ryo Sakai <ryo.sakai@esat.kuleuven.be>
+Maintainer: Ryo Sakai <ryo@vda-lab.be>
 Description: The gap encodes the distance between clusters and improves
     interpretation of cluster heatmaps. The gaps can be of the same
     distance based on a height threshold to cut the dendrogram. Another
@@ -18,6 +18,6 @@ Suggests: knitr, dendsort, RColorBrewer
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2015-11-15 19:15:17 UTC; ryosakai
+Packaged: 2015-12-14 11:44:45 UTC; ryosakai
 Repository: CRAN
-Date/Publication: 2015-11-16 16:20:19
+Date/Publication: 2015-12-14 14:15:38

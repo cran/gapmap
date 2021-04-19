@@ -20,4 +20,3 @@ the reevaluated dendrogram object
 This function reevaluate the position of branches based on the gaps calculated.
 }
 \keyword{internal}
-

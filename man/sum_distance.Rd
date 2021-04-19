@@ -4,8 +4,14 @@
 \alias{sum_distance}
 \title{Sum the distance of all branches in a dendrogram}
 \usage{
-sum_distance(d, sum = 0, mapping = c("exponential", "linear"), scale = 0,
-  max_height = 0, ...)
+sum_distance(
+  d,
+  sum = 0,
+  mapping = c("exponential", "linear"),
+  scale = 0,
+  max_height = 0,
+  ...
+)
 }
 \arguments{
 \item{d}{dendrogram class object}
@@ -25,4 +31,3 @@ This function is called recursively to adds up the sum. In case of exponential m
 mode, the sum is in the exponential scale
 }
 \keyword{internal}
-

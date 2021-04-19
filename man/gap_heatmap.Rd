@@ -4,10 +4,16 @@
 \alias{gap_heatmap}
 \title{Function to draw a gapped heatmap}
 \usage{
-gap_heatmap(m, row_gap = NULL, col_gap = NULL, row_labels = TRUE,
-  col_labels = TRUE, rotate = FALSE, col = c("#053061", "#2166AC",
-  "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7", "#FDDBC7", "#F4A582", "#D6604D",
-  "#B2182B", "#67001F"))
+gap_heatmap(
+  m,
+  row_gap = NULL,
+  col_gap = NULL,
+  row_labels = TRUE,
+  col_labels = TRUE,
+  rotate = FALSE,
+  col = c("#053061", "#2166AC", "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7", "#FDDBC7",
+    "#F4A582", "#D6604D", "#B2182B", "#67001F")
+)
 }
 \arguments{
 \item{m}{data matrix}
@@ -23,8 +29,6 @@ gap_heatmap(m, row_gap = NULL, col_gap = NULL, row_labels = TRUE,
 \item{rotate}{a logical to rotate row labels}
 
 \item{col}{colors used for heatmap}
-
-\item{...}{ignored}
 }
 \value{
 a ggplot object
@@ -33,4 +37,3 @@ a ggplot object
 This function draws a gapped heatmap using the ggplot2 package. The input for the
 function are the gapdata class objects, generated from gap_data() function, and the data matrix.
 }
-

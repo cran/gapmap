@@ -1,7 +1,7 @@
-## ----, message=FALSE-----------------------------------------------------
+## ---- message=FALSE-----------------------------------------------------------
 library(gapmap)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 set.seed(1234)
 x <- rnorm(10, mean=rep(1:5, each=2), sd=0.4)
 y <- rnorm(10, mean=rep(c(1,2), each=5), sd=0.4)
@@ -12,14 +12,14 @@ distxy <- dist(dataFrame)
 hc <- hclust(distxy)
 dend <- as.dendrogram(hc)
 
-## ----, fig.width= 6.5, fig.height=6--------------------------------------
+## ---- fig.width= 6.5, fig.height=6--------------------------------------------
 grey_scale =c("#333333", "#5C5C5C", "#757575", "#8A8A8A", "#9B9B9B", "#AAAAAA", "#B8B8B8", "#C5C5C5", "#D0D0D0", "#DBDBDB", "#E6E6E6")
 gapmap(m = as.matrix(distxy), d_row= rev(dend), d_col=dend, col = grey_scale)
 
-## ----, fig.width= 6.5, fig.height=6--------------------------------------
+## ---- fig.width= 6.5, fig.height=6--------------------------------------------
 gapmap(m = as.matrix(distxy), d_row= rev(dend), d_col=dend,  mode = "quantitative", mapping="linear", col = grey_scale)
 
-## ----, echo=FALSE, fig.width= 6.5, fig.height=6--------------------------
+## ---- echo=FALSE, fig.width= 6.5, fig.height=6--------------------------------
 distances <-seq(0, 5, 0.1)
 data <- data.frame(distance=distances)
 s <- 0.5
@@ -38,7 +38,7 @@ for(i in 1:nrow(data)){
 gaps <- rbind(l, e)
 ggplot(gaps, aes(x=gap, y=distance, group=type)) + geom_line(aes(color=type))+theme_bw()+ theme(legend.position= c(0.9,0.1))
 
-## ----, echo=FALSE, fig.width= 6.5, fig.height=6--------------------------
+## ---- echo=FALSE, fig.width= 6.5, fig.height=6--------------------------------
 scales <- seq(0.1, 3, 0.3)
 distances <-seq(0, 5, 0.1)
 D = data.frame()
@@ -69,10 +69,10 @@ ggplot() + geom_line(data=D, aes(x=gap, y=distance, group=scale), color="#56B1F7
   geom_point(data= labels, aes(x=gap,y=distance)) +
   theme_bw() + theme(legend.position="none") 
 
-## ----, fig.width= 6.5, fig.height=6--------------------------------------
+## ---- fig.width= 6.5, fig.height=6--------------------------------------------
 gapmap(m = as.matrix(distxy), d_row= rev(dend), d_col=dend,  mode = "threshold", row_threshold = 2, col_threshold = 2, col = grey_scale)
 
-## ----, fig.width= 6.5, fig.height=6--------------------------------------
+## ---- fig.width= 6.5, fig.height=6--------------------------------------------
 library(dendsort);
 gapmap(m = as.matrix(distxy), d_row= rev(dendsort(dend)), d_col=dendsort(dend),  mode = "quantitative", col = grey_scale)
 

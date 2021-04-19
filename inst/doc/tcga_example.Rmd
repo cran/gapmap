@@ -1,13 +1,13 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{An example with a TCGA dataset}
--->
-
 ---
-title: "tcga_example"
-author: "Ryo Sakai"
-date: "8 September 2014"
-output: html_document
+title: "Example with a TCGA dataset"
+date: 8 September 2014
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{"Example with a TCGA dataset"}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 This is an R Markdown document, which demonstrates the use of **gapmap** and **dendsort** packages to generate a gapped cluster heatmap visualization.
@@ -39,28 +39,29 @@ row_d <- as.dendrogram(row_hc)
 
 Now you are ready to plot the data. First, we will plot a cluster heatmap without any gaps. 
 
-```{r, fig.height=13, fig.width=20}
+```{r, fig.height=5, fig.width=7}
 gapmap(m = as.matrix(dataTable), d_row = rev(row_d), d_col = col_d, ratio = 0, verbose=FALSE, col=RdBu,
        label_size=2, v_ratio= c(0.1,0.8,0.1), h_ratio=c(0.1,0.8,0.1))
 ```
 
 This `gapmap` package was designed to encode the similarity between two nodes by adjusting the position of each leaves. In the traditional representation, all the information about the similarity two adjacent nodes is in the height of the branch in a dendrogram. By positioning leaves based on the similarity, we introduce gaps in both dendrograms and heat map visualization. In the figure below, we exponentially map a distance (dissimilarity) of two nodes to a scale of gap size.  
 
-```{r, fig.height=13, fig.width=20}
+```{r, fig.height=5, fig.width=7}
 gapmap(m = as.matrix(dataTable), d_row = rev(row_d), d_col = col_d, mode = "quantitative", mapping="exponential", col=RdBu,
        ratio = 0.3, verbose=FALSE, scale = 0.5, label_size=2, v_ratio= c(0.1,0.8,0.1), h_ratio=c(0.1,0.8,0.1))
 ```
 
 Since the background is white, we can use another color scale where the value 0 is encoded in yellow. 
-```{r, fig.height=13, fig.width=20}
+
+```{r, fig.height=5, fig.width=7}
 gapmap(m = as.matrix(dataTable), d_row = rev(row_d), d_col = col_d, mode = "quantitative", mapping="exponential", col=RdYlBu,
        ratio = 0.3, verbose=FALSE, scale = 0.5, label_size=2, v_ratio= c(0.1,0.8,0.1), h_ratio=c(0.1,0.8,0.1))
 ```
 
 ## dendsort ##
-This package works well with the **dendsort** package to reorder the structure of dendrograms. For further information for the **dendsort**, please see the [paper](http://f1000research.com/articles/3-177/v1).
+This package works well with the **dendsort** package to reorder the structure of dendrograms. For further information for the **dendsort**, please see the [paper](https://f1000research.com/articles/3-177/v1).
 
-```{r, fig.height=13, fig.width=20}
+```{r, fig.height=5, fig.width=7}
 library(dendsort)
 gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
        mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
@@ -69,38 +70,20 @@ gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")),
 
 ## dendrograms ##
 You can also plot gapped dendrogram. First you need to create a `gapdata` class object by calling `gap_data()`.  To bring the text labels closer to the dendrogram, we set a negative value to `axis.tick.margin`. This value should be adjusted depending on your plot size. If anyone has a better solution to adjust the position of the axis labels, please let me know.  
-```{r, fig.height=10, fig.width=20}
+```{r, fig.height=5, fig.width=7}
 row_data <- gap_data(d= row_d, mode = "quantitative", mapping="exponential", ratio=0.3, scale= 0.5)
 dend <- gap_dendrogram(data = row_data, leaf_labels = TRUE, rotate_label = TRUE)
-dend + theme(axis.ticks.length= unit(0,"lines") )+ theme(axis.ticks.margin = unit(-0.8, "lines"))
+dend + theme(axis.ticks.length= grid::unit(0,"lines") )+ theme(axis.ticks.margin = grid::unit(-0.8, "lines"))
 ```
 
 Here, we can also apply `dendsort`.
-```{r, fig.height=10, fig.width=20}
+```{r, fig.height=5, fig.width=7}
 row_data <- gap_data(d= dendsort(row_d, type = "average"), mode = "quantitative", mapping="exponential", ratio=0.3, scale= 0.5)
 dend <- gap_dendrogram(data = row_data, leaf_labels = TRUE, rotate_label = TRUE)
-dend + theme(axis.ticks.length= unit(0,"lines") )+ theme(axis.ticks.margin = unit(-0.8, "lines"))
+dend + theme(axis.ticks.length= grid::unit(0,"lines") )+ theme(axis.ticks.margin = grid::unit(-0.8, "lines"))
 ```
 
 
 
-## How to export images ##
-In order to save the output, use the `png()` or `pdf()` functions.
-```{r, eval=FALSE}
-png("myplot.png", width= 2000, height= 1300, units="px")
-gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
-       mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
-       h_ratio=c(0.1,0.8,0.1), label_size=2, show_legend=TRUE)
-dev.off()
-```
-
-To save a pdf file.
-```{r, eval=FALSE}
-pdf("myplot.pdf", width= 20, height= 13)
-gapmap(m = as.matrix(dataTable), d_row = rev(dendsort(row_d, type = "average")), d_col = dendsort(col_d, type = "average"),  
-       mode = "quantitative", mapping="exponential", ratio = 0.3, verbose=FALSE, scale = 0.5, v_ratio= c(0.1,0.8,0.1), 
-       h_ratio=c(0.1,0.8,0.1), label_size=2, show_legend=TRUE)
-dev.off()
-```
 
 

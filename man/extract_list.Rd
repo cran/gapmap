@@ -24,4 +24,3 @@ the extracted list
 This function extract list of data.frames for drawing dendrograms
 }
 \keyword{internal}
-

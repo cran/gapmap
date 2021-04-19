@@ -16,4 +16,3 @@ a logical TRUE or FALSE
 This function checks if a object is a gapdata class object.
 }
 \keyword{internal}
-

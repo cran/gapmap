@@ -21,4 +21,3 @@ This function counts the number of gaps based on the cutting the tree method.
 It counts the number of branches that are above the threshold distance.
 }
 \keyword{internal}
-

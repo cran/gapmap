@@ -4,9 +4,16 @@
 \alias{gap_data}
 \title{Generate a gapdata class object from a dendrogram object}
 \usage{
-gap_data(d, mode = c("quantitative", "threshold"),
-  mapping = c("exponential", "linear"), ratio = 0.2, scale = 0.5,
-  threshold = 0, verbose = FALSE, ...)
+gap_data(
+  d,
+  mode = c("quantitative", "threshold"),
+  mapping = c("exponential", "linear"),
+  ratio = 0.2,
+  scale = 0.5,
+  threshold = 0,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{d}{dendrogram class object}
@@ -34,4 +41,3 @@ By parsing the dendrogram object based on parameters for gaps, gaps between leav
 and the coordinates of the leaves are adjusted. The gaps can be based on the a height (or distance) threshold to
 to introduce the gaps of the same width, or quantitative mapping of distance values mapped linearly or exponentially.
 }
-

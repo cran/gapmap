@@ -22,4 +22,3 @@ A data.frame
 This function just make a data.frame based on 4 input parameters
 }
 \keyword{internal}
-

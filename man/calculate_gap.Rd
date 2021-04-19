@@ -4,9 +4,19 @@
 \alias{calculate_gap}
 \title{Calculate the gaps based on distance}
 \usage{
-calculate_gap(d, sum, gap_total, mode = c("quantitative", "threshold"),
-  mapping = c("exponential", "linear"), scale = 0.2, max_height = 0,
-  threshold = 2, gap_size = 0, verbose = FALSE, ...)
+calculate_gap(
+  d,
+  sum,
+  gap_total,
+  mode = c("quantitative", "threshold"),
+  mapping = c("exponential", "linear"),
+  scale = 0.2,
+  max_height = 0,
+  threshold = 2,
+  gap_size = 0,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{d}{dendrogram class object}
@@ -40,4 +50,3 @@ size of gaps between leaves. The gap is stored in a  leaf to its left. The funct
 is called recursively.
 }
 \keyword{internal}
-

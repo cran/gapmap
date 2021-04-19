@@ -4,15 +4,31 @@
 \alias{gapmap}
 \title{Function to draw a gapped cluster heatmap}
 \usage{
-gapmap(m, d_row, d_col, mode = c("quantitative", "threshold"),
-  mapping = c("exponential", "linear"), ratio = 0.2, scale = 0.5,
-  threshold = 0, row_threshold = NULL, col_threshold = NULL,
-  rotate_label = TRUE, verbose = FALSE, left = "dendrogram",
-  top = "dendrogram", right = "label", bottom = "label",
-  col = c("#053061", "#2166AC", "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7",
-  "#FDDBC7", "#F4A582", "#D6604D", "#B2182B", "#67001F"), h_ratio = c(0.2,
-  0.7, 0.1), v_ratio = c(0.2, 0.7, 0.1), label_size = 5,
-  show_legend = FALSE, ...)
+gapmap(
+  m,
+  d_row,
+  d_col,
+  mode = c("quantitative", "threshold"),
+  mapping = c("exponential", "linear"),
+  ratio = 0.2,
+  scale = 0.5,
+  threshold = 0,
+  row_threshold = NULL,
+  col_threshold = NULL,
+  rotate_label = TRUE,
+  verbose = FALSE,
+  left = "dendrogram",
+  top = "dendrogram",
+  right = "label",
+  bottom = "label",
+  col = c("#053061", "#2166AC", "#4393C3", "#92C5DE", "#D1E5F0", "#F7F7F7", "#FDDBC7",
+    "#F4A582", "#D6604D", "#B2182B", "#67001F"),
+  h_ratio = c(0.2, 0.7, 0.1),
+  v_ratio = c(0.2, 0.7, 0.1),
+  label_size = 5,
+  show_legend = FALSE,
+  ...
+)
 }
 \arguments{
 \item{m}{matrix}
@@ -81,4 +97,3 @@ dend <- as.dendrogram(hc)
 gapmap(m = as.matrix(distxy), d_row= rev(dend), d_col=dend)
 
 }
-

@@ -26,4 +26,3 @@ a numeric value
 This function maps a value in one range to another range exponentially.
 }
 \keyword{internal}
-

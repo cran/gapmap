@@ -24,4 +24,3 @@ the gapdata class object
 This function generates a gapdata class object.  This object is used for drawing dendrograms and heatmaps.
 }
 \keyword{internal}
-

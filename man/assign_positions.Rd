@@ -22,4 +22,3 @@ the reevaluated dendrogram object
 This function reevaluate the position of leaves based on the gaps calculated.
 }
 \keyword{internal}
-

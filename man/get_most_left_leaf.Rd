@@ -16,4 +16,3 @@ the most left leaf object
 This function returns the most left leaf object.
 }
 \keyword{internal}
-

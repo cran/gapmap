@@ -4,8 +4,13 @@
 \alias{gap_dendrogram}
 \title{Function to draw a gapped dendrogram}
 \usage{
-gap_dendrogram(data, leaf_labels = TRUE, rotate_label = FALSE,
-  orientation = c("top", "right", "bottom", "left"), ...)
+gap_dendrogram(
+  data,
+  leaf_labels = TRUE,
+  rotate_label = FALSE,
+  orientation = c("top", "right", "bottom", "left"),
+  ...
+)
 }
 \arguments{
 \item{data}{gapdata class object}
@@ -25,4 +30,3 @@ a ggplot object
 This function draws a gapped dendrogram using the ggplot2 package. The input for the
 function is the gapdata class object, generated from gap_data() function.
 }
-

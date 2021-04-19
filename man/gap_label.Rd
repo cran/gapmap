@@ -20,4 +20,3 @@ a ggplot object
 This function draws a gapped labels using the ggplot2 package. The input for the
 function is the gapdata class object, generated from gap_data() function.
 }
-

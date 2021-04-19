@@ -18,4 +18,3 @@ the dendrogram class object where the most right leaf is replaced
 This function replace the most right leaf with provided dendrogram
 }
 \keyword{internal}
-

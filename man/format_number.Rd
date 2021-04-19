@@ -16,4 +16,3 @@ formatted number
 This function takes a floating number and round to 2 decimal point
 }
 \keyword{internal}
-

@@ -23,4 +23,3 @@ The general workflow is as following:
 Ryo Sakai \email{ryo.sakai@esat.kuleuven.be}
 }
 \keyword{package}
-

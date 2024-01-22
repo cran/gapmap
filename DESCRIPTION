@@ -1,6 +1,6 @@
 Package: gapmap
-Title: Drawing Gapped Cluster Heatmap with 'ggplot2'
-Version: 0.1.0
+Title: Drawing Gapped Cluster Heatmaps with 'ggplot2'
+Version: 1.0.0
 Authors@R: c(person("Ryo", "Sakai", email="ryo@vda-lab.be", role="aut"), person("Evan", "Biederstedt", email="evan.biederstedt@gmail.com", role=c("cre", "aut")))
 Description: The gap encodes the distance between clusters and improves
     interpretation of cluster heatmaps. The gaps can be of the same
@@ -15,11 +15,11 @@ Suggests: knitr, dendsort, RColorBrewer, rmarkdown
 VignetteBuilder: knitr
 URL: https://github.com/evanbiederstedt/gapmap
 BugReports: https://github.com/evanbiederstedt/gapmap/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 NeedsCompilation: no
 Maintainer: Evan Biederstedt <evan.biederstedt@gmail.com>
-Packaged: 2021-04-18 22:19:35 UTC; evanbiederstedt
+Packaged: 2024-01-22 17:42:53 UTC; evanbiederstedt
 Author: Ryo Sakai [aut],
   Evan Biederstedt [cre, aut]
 Repository: CRAN
-Date/Publication: 2021-04-19 09:10:05 UTC
+Date/Publication: 2024-01-22 20:50:02 UTC
